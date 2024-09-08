@@ -35,7 +35,13 @@ times = {
 	"c_linear_probing": [],
 	"cpp_unordered_map": [],
 	"cpp_map": [],
+
+	"c_linear_probing_clang": [],
+	"cpp_unordered_map_clang": [],
+	"cpp_map_clang": [],
+
 	"python.py": [],
+	
 	"rust_hashmap": [],
 	"rust_btreemap": [],
 	"rust_fxhash/target/release/rust_fxhash": [],
