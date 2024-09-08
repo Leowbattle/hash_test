@@ -8,3 +8,8 @@
 
 /rust_hashmap
 /rust_btreemap
+
+/gmon.out
+/gmon.txt
+
+/words.txt

@@ -136,15 +136,21 @@ Entry* HashMap_get_or_default(HashMap* hm, const char* k, int d) {
 
 	size_t h = djb2(k) % hm->size;
 
-	Entry* e;
+    Entry* e;
+    int i2 = h;
 	for (int i = 0; i < hm->size; i++) {
-		e = &hm->entries[(i + h) % hm->size];
+		e = &hm->entries[i2];
 		if (e->k == NULL) {
 			break;
 		}
 		if (strcmp(e->k, k) == 0) {
 			return e;
 		}
+
+        i2++;
+        if (i2 == hm->size) {
+            i2 = 0;
+        }
 	}
 
 	e->k = k;

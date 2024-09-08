@@ -3,14 +3,15 @@
 import random
 import sys
 
-words = open("/usr/share/dict/words").readlines()
-words = random.sample(words, 1000)
+def genwords(samplesize, numwords):
+	words = open("/usr/share/dict/words").readlines()
+	words = random.sample(words, samplesize)
 
-numwords = int(sys.argv[1]) if len(sys.argv) > 1 else 10000
+	out = open("words.txt", "w")
 
-out = open("words.txt", "w")
+	for i in range(numwords):
+		out.write(random.choice(words))
 
-for i in range(numwords):
-	out.write(random.choice(words))
+	out.close()
 
-out.close()
+genwords(int(sys.argv[1]), int(sys.argv[2]))
