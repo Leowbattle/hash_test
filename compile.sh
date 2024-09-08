@@ -3,3 +3,4 @@ g++ cpp_unordered_map.cpp -o cpp_unordered_map -O3
 g++ cpp_map.cpp -o cpp_map -O3
 rustc rust_hashmap.rs -o rust_hashmap -C opt-level=3
 rustc rust_btreemap.rs -o rust_btreemap -C opt-level=3
+cargo build --manifest-path=rust_fxhash/Cargo.toml --release

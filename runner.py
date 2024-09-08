@@ -38,6 +38,7 @@ times = {
 	"python.py": [],
 	"rust_hashmap": [],
 	"rust_btreemap": [],
+	"rust_fxhash/target/release/rust_fxhash": [],
 }
 
 x = range(0, 11000, 1000)
