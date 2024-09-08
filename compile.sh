@@ -1,4 +1,5 @@
-gcc frequency_c.c -o frequency_c -O3
-g++ frequency_cpp_unordered_map.cpp -o frequency_cpp_unordered_map -O3
-g++ frequency_cpp_map.cpp -o frequency_cpp_map -O3
-rustc frequency_rust.rs -o frequency_rust -C opt-level=3
+gcc c_linear_probing.c -o c_linear_probing -O3
+g++ cpp_unordered_map.cpp -o cpp_unordered_map -O3
+g++ cpp_map.cpp -o cpp_map -O3
+rustc rust_hashmap.rs -o rust_hashmap -C opt-level=3
+rustc rust_btreemap.rs -o rust_btreemap -C opt-level=3

@@ -32,11 +32,12 @@ def testprog(program_name):
 	return average_time * 1000
 
 times = {
-	"frequency_c": [],
-	"frequency_cpp_unordered_map": [],
-	# "frequency_cpp_map": [],
-	# "frequency_python.py": [],
-	"frequency_rust": []
+	"c_linear_probing": [],
+	"cpp_unordered_map": [],
+	"cpp_map": [],
+	"python.py": [],
+	"rust_hashmap": [],
+	"rust_btreemap": [],
 }
 
 x = range(0, 11000, 1000)
