@@ -31,6 +31,7 @@ HashMap HashMap_new(size_t size);
 Entry* HashMap_get(HashMap* hm, const char* k);
 void HashMap_rehash(HashMap* hm);
 void HashMap_insert(HashMap* hm, const char* k, int v);
+Entry* HashMap_get_or_default(HashMap* hm, const char* k, int d);
 
 HashMap HashMap_new(size_t size) {
 	HashMap hm = {0};
@@ -115,6 +116,45 @@ void HashMap_insert(HashMap* hm, const char* k, int v) {
 	hm->count++;
 }
 
+Entry* HashMap_get_or_default(HashMap* hm, const char* k, int d) {
+	//printf("Insert %s %d\n", k, v);
+
+	if (hm->entries == NULL) {
+		hm->entries = calloc(DEFAULT_SIZE, sizeof(Entry));
+		hm->size = DEFAULT_SIZE;
+		hm->count = 0;
+	}
+
+	if (k == NULL) {
+		printf("Null key\n");
+		return NULL;
+	}
+
+	if ((float)hm->count / hm->size > LOAD_FACTOR) {
+		HashMap_rehash(hm);
+	}
+
+	size_t h = djb2(k) % hm->size;
+
+	Entry* e;
+	for (int i = 0; i < hm->size; i++) {
+		e = &hm->entries[(i + h) % hm->size];
+		if (e->k == NULL) {
+			break;
+		}
+		if (strcmp(e->k, k) == 0) {
+			return e;
+		}
+	}
+
+	e->k = k;
+	e->v = d;
+
+	hm->count++;
+
+	return e;
+}
+
 // Make me a function to get a list of lines from a file
 // Copilot generated this
 char** getLinesFromFile(const char* filename, size_t* lineCount) {
@@ -154,20 +194,13 @@ int main() {
 	for (int i = 0; i < lineCount; i++) {
 		char* line = lines[i];
 
-		Entry* e = HashMap_get(&freq, line);
-		if (e == NULL) {
-			HashMap_insert(&freq, strdup(line), 1);
-		}
-		else {
-			e->v++;
-		}
+		Entry* e = HashMap_get_or_default(&freq, line, 0);
+		e->v++;
 	}
 
 	clock_t end = clock();
 	double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 	printf("%f\n", cpu_time_used);
-
-	free(lines);
 
 	// for (int i = 0; i < freq.size; i++) {
 	// 	Entry* e = &freq.entries[i];
@@ -177,6 +210,7 @@ int main() {
 	// 	}
 	// }
 
+	free(lines);
 	free(freq.entries);
 
 	return 0;

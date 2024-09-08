@@ -36,9 +36,9 @@ times = {
 	"cpp_unordered_map": [],
 	"cpp_map": [],
 
-	"c_linear_probing_clang": [],
-	"cpp_unordered_map_clang": [],
-	"cpp_map_clang": [],
+	# "c_linear_probing_clang": [],
+	# "cpp_unordered_map_clang": [],
+	# "cpp_map_clang": [],
 
 	"python.py": [],
 	

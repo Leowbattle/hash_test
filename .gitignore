@@ -1,5 +1,10 @@
 /c_linear_probing
 /cpp_map
 /cpp_unordered_map
+
+/c_linear_probing_clang
+/cpp_map_clang
+/cpp_unordered_map_clang
+
 /rust_hashmap
 /rust_btreemap
