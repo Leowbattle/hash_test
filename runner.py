@@ -35,6 +35,7 @@ times = {
 	"c_linear_probing": [],
 	"cpp_unordered_map": [],
 	"cpp_map": [],
+	"cpp_robin_map": [],
 
 	# "c_linear_probing_clang": [],
 	# "cpp_unordered_map_clang": [],
