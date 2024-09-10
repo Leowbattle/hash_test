@@ -8,7 +8,7 @@ fn main() {
 	let reader = BufReader::new(file);
 
 	let mut lines = Vec::new();
-	let mut freq = HashMap::new();
+	let mut freq: HashMap<&str, i32> = HashMap::new();
 
 	for line in reader.lines() {
 		if let Ok(line) = line {
@@ -18,8 +18,8 @@ fn main() {
 
 	let start = Instant::now();
 
-	for line in lines {
-		*freq.entry(line).or_insert(0) += 1;
+	for line in lines.iter() {
+		*freq.entry(line.as_str()).or_insert(0) += 1;
 	}
 
 	let end = Instant::now();
