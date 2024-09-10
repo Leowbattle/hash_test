@@ -33,6 +33,7 @@ def testprog(program_name):
 
 times = {
 	"c_linear_probing": [],
+	"c_chaining": [],
 	"cpp_unordered_map": [],
 	"cpp_map": [],
 	"cpp_robin_map": [],

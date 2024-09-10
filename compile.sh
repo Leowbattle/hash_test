@@ -1,4 +1,5 @@
 gcc c_linear_probing.c -o c_linear_probing -O3
+gcc c_chaining.c -o c_chaining -O3
 g++ cpp_unordered_map.cpp -o cpp_unordered_map -O3
 g++ cpp_map.cpp -o cpp_map -O3
 g++ cpp_robin_map.cpp -o cpp_robin_map -O3 -Irobin-map/include
