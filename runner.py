@@ -43,6 +43,7 @@ times = {
 	# "cpp_map_clang": [],
 
 	"python.py": [],
+	"python_counter.py": [],
 	
 	"rust_hashmap": [],
 	"rust_btreemap": [],
